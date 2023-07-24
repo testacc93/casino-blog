@@ -10,10 +10,10 @@ def home(request):
     return render(request, 'home.html', context)
 
 def contact(request):
-    return render(request, 'home.html')
+    return render(request, 'contact.html')
 
 def blog(request, post_name):
-    blog = Blog.objects.get(title=post_name)
-    blog.title = blog.title.replace(' ', '-')
+    blog_name = post_name.replace('-', ' ')
+    blog = Blog.objects.get(title=blog_name)
     image = Image.objects.get(blog_id=blog.id)
     return render(request, 'blog.html', {'blog':blog, 'image_url':image.image.url})

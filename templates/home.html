@@ -1,74 +1,48 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-
-<body class="home-template">
-    <div class="site-wrapper">
-        <nav class="main-nav overlay clearfix">
-            <a class="blog-logo" href="index.html"><img src="assets/img/logo.png" alt="Fashion Critiques"/></a>
-            <ul id="menu">
-                <li class="nav-home nav-current" role="presentation"><a href="/">Home</a></li>
-                <li class="nav-article-example" role="presentation"><a href="article.html">Post Example</a></li>
-                <li class="nav-about-us" role="presentation"><a href="about.html">Page Example</a></li>
-                <li class="nav-author-page" role="presentation"><a href="author.html">Author Page</a></li>
-            </ul>
-        </nav>
-        <header class="main-header " style="background-image: url(static/assets/img/intro.jpg)">
-            <div class="vertical">
-                <div class="main-header-content inner">
-                    <h1 class="page-title">Fashion Critiques</h1>
-                    <div class="entry-title-divider">
-                        <span></span><span></span><span></span>
-                    </div>
-                    <h2 class="page-description">Thoughts, reviews and ideas since 1999.</h2>
-                </div>
+<header class="main-header " style="background-image: linear-gradient(rgba(0,0,0,1.75), rgba(0,0,0,0.75)), url(static/assets/img/intro.jpg);">
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">casino-blogs</h1>
+            <div class="entry-title-divider">
+                <span></span><span></span><span></span>
             </div>
-            <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
-        </header>
-        <main id="content" class="content" role="main">
-            <div class="wraps">
-                <img src="assets/img/shadow.png" class="wrapshadow">
-                <div class="grid">
-                    {% for blog in blogs %}
-                    <div class="grid-item">
-                        <article class="post">
-                            <div class="wrapgriditem">
-                                <header class="post-header">
-                                    <h2 class="post-title"><a href="/blog/{{ blog.title }}">{{ blog.title }}</a></h2>
-                                </header>
-                                <section class="post-excerpt">
-                                    <p>
-                                        {{ blog.body | slice:":100" }} <a class="read-more" href="/retro-is-the-new-modern/">&raquo;</a>
-                                    </p>
-                                </section>
-                                <footer class="post-meta">
-                                    <img class="author-thumb" src="assets/img/gravatar.jpg" alt="David" nopin="nopin"/>
-                                    <a href="author.html">Admin</a>
-                                    <time class="post-date" datetime="2016-12-18">{{ blog.created_at }}</time>
-                                </footer>
-                            </div>
-                        </article>
-                    </div>
-                    {% endfor %}
-                </div>
-                <nav class="pagination" role="navigation">
-                    <span class="page-number">Page 1 of 2</span>
-                    <a class="older-posts" href="page2.html">Older Posts &rarr;</a>
-                </nav>
-            </div>
-        </main>
-        <footer class="site-footer clearfix">
-            <a href="#top" id="back-to-top" class="back-top"></a>
-            <div class="text-center">
-                <a href="index.html">Nectaria Template</a> &copy; 2016<br/>
-                Free HTML Template by <a href="https://wowthemes.net">WowThemes.net</a>
-            </div>
-        </footer>
+            <h2 class="page-description">Thoughts, reviews and ideas since 1999.</h2>
+        </div>
     </div>
-    
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="{% static 'assets/js/masonry.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'assets/js/jquery.fitvids.js' %}"></script>
-    <script type="text/javascript" src="{% static 'assets/js/index.js' %}"></script>
-</body>
+    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+</header>
+<main id="content" class="content" role="main">
+    <div class="wraps">
+        <img src="{% static 'assets/img/shadow.png' %}" class="wrapshadow">
+        <div class="grid">
+            {% for blog in blogs %}
+            <div class="grid-item">
+                <article class="post">
+                    <div class="wrapgriditem">
+                        <header class="post-header">
+                            <h2 class="post-title"><a href="/blog/{{ blog.title }}">{{ blog.title }}</a></h2>
+                        </header>
+                        <section class="post-excerpt">
+                            <p>
+                                {{ blog.body | slice:":100" }} <a class="read-more" href="/retro-is-the-new-modern/">&raquo;</a>
+                            </p>
+                        </section>
+                        <footer class="post-meta">
+                            <img class="author-thumb" src="{% static 'assets/img/admin.png' %}" alt="David" nopin="nopin"/>
+                            <a href="author.html">Admin</a>
+                            <time class="post-date" datetime="2016-12-18">{{ blog.created_at }}</time>
+                        </footer>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+        {% comment %} <nav class="pagination" role="navigation">
+            <span class="page-number">Page 1 of 2</span>
+            <a class="older-posts" href="page2.html">Older Posts &rarr;</a>
+        </nav> {% endcomment %}
+    </div>
+</main>
 {% endblock body %}

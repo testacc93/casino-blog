@@ -11,8 +11,76 @@
 <link rel="stylesheet" type="text/css" href="{% static 'assets/css/screen.css' %}"/>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,700,700italic|Playfair+Display:400,700,400italic,700italic"/>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+{% block title %}{% endblock %}
 </head>
-{% block body %}
 
-{% endblock body %}
+
+<body class="post-template home-template author-template">
+    <div class="site-wrapper">
+        <nav class="main-nav overlay clearfix">
+            <a class="blog-logo" href="/"><img style="max-height:60px" src="{% static 'assets/img/logobg.png' %}" alt="casino blogs"/></a>
+            <ul id="menu">
+                <li class="nav-home nav-current" role="presentation"><a href="/">Home</a></li>
+                <li class="nav-author-page" role="presentation"><a href="/contact">Contact</a></li>
+            </ul>
+            </nav>
+            {% block body %}{% endblock body %}
+        {% comment %} <header class="main-header " style="background-image: linear-gradient(rgba(0,0,0,1.75), rgba(0,0,0,0.75)), url(static/assets/img/intro.jpg);">
+            <div class="vertical">
+                <div class="main-header-content inner">
+                    <h1 class="page-title">casino-blogs</h1>
+                    <div class="entry-title-divider">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <h2 class="page-description">Thoughts, reviews and ideas since 1999.</h2>
+                </div>
+            </div>
+            <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+        </header>
+        <main id="content" class="content" role="main">
+            <div class="wraps">
+                <img src="{% static 'assets/img/shadow.png' %}" class="wrapshadow">
+                <div class="grid">
+                    {% for blog in blogs %}
+                    <div class="grid-item">
+                        <article class="post">
+                            <div class="wrapgriditem">
+                                <header class="post-header">
+                                    <h2 class="post-title"><a href="/blog/{{ blog.title }}">{{ blog.title }}</a></h2>
+                                </header>
+                                <section class="post-excerpt">
+                                    <p>
+                                        {{ blog.body | slice:":100" }} <a class="read-more" href="/retro-is-the-new-modern/">&raquo;</a>
+                                    </p>
+                                </section>
+                                <footer class="post-meta">
+                                    <img class="author-thumb" src="{% static 'assets/img/admin.png' %}" alt="David" nopin="nopin"/>
+                                    <a href="author.html">Admin</a>
+                                    <time class="post-date" datetime="2016-12-18">{{ blog.created_at }}</time>
+                                </footer>
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+                <nav class="pagination" role="navigation">
+                    <span class="page-number">Page 1 of 2</span>
+                    <a class="older-posts" href="page2.html">Older Posts &rarr;</a>
+                </nav>
+            </div>
+        </main> {% endcomment %}
+        <footer class="site-footer clearfix">
+            <a href="#top" id="back-to-top" class="back-top"></a>
+            <div class="text-center">
+                <a href="/">Casino Blogs</a> &copy; 2023<br/>
+                Register, play and win <a target="_blank" href="https://www.stake.com/?c=6dcJaV5q">Don't click</a>
+            </div>
+        </footer>
+    </div>
+    
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="{% static 'assets/js/masonry.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.fitvids.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/index.js' %}"></script>
+</body>
 </html>
