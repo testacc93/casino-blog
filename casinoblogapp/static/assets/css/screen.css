@@ -457,7 +457,7 @@ iframe,.fluid-width-video-wrapper {
 .site-wrapper {
 	position:relative;
 	z-index:10;
-	min-height:100%;
+	min-height:75%;
 	background:#fff;
 	-webkit-transition:-webkit-transform 0.5s ease;
 	transition:transform 0.5s ease;
@@ -1503,6 +1503,9 @@ h2.widget-title {
 	blockquote {
 		margin-left:0;
 	}
+	#logo-site{
+		display: none;
+	}
 	.main-header {
 		-webkit-box-sizing:border-box;
 		-moz-box-sizing:border-box;
@@ -2071,6 +2074,7 @@ div#preloader {
 }
 .slicknav_menu {
 	display: none;
+	
 }
 @media screen and (max-width:900px) {
 	/* #menu is the original menu */
@@ -2185,7 +2189,7 @@ div#preloader {
 .slicknav_menu {
 	font-size:16px;
 	box-sizing:border-box;
-	background:#313232;
+	background: rgb(65 94 67 / 80%);
 	padding:5px;
 	right:0;
 	z-index:99;
